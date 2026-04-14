@@ -1,6 +1,6 @@
 import json
 from json import JSONDecodeError
-from Task import Task
+from src.Task import Task
 
 class TaskManager:
     def __init__(self):
@@ -61,7 +61,7 @@ class TaskManager:
         tf = input("Task Find: ")
         found = False
         for task in self.tasklist:
-            if tf in task['title'].lower():
+            if tf.lower() in task['title'].lower():
                 found = True
                 print(task["title"], task["description"], task["priority"])
         if not found:

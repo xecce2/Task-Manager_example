@@ -15,8 +15,6 @@ mock_tasklist = [
 def test_task_manager_init_empty_file(mock_print):
     tm = TaskManager()
     assert tm.tasklist == []
-    # FIX: assert_any_call compares exception objects by identity, not message string.
-    # Instead, inspect the actual argument passed to print() and compare its message.
     printed_args = [str(c.args[0]) for c in mock_print.call_args_list]
     assert "Expecting value: line 1 column 1 (char 0)" in printed_args
     mock_print.assert_any_call("File Created")
